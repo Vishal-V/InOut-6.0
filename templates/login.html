@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+
+ <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+          <img src="{{ url_for('static', filename='res/img-01.png') }}" alt="IMG" class="image1">
+        </div>
+        <script >
+          $('.js-tilt').tilt({
+            scale: 1.1
+          })
+        </script>
+
+
+      <form method="POST" action="login">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+          <legend class="border-bottom mb-4 text-center">
+            Member Login
+          </legend>
+            
+          </fieldset>
+          
+          <div class="wrap-input100">
+            <div class="form-group">
+              {{ form.email.label(class="form-control-label") }}
+              {% if form.email.errors %}
+                  {{ form.email(class="form-control is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                      <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+              {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+              {% endif %}
+            </div>
+
+          <div class="wrap-input100">
+           
+            <div class="form-group">
+              {{ form.password.label(class="form-control-label") }}
+              {% if form.password.errors %}
+                {{ form.password(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+              {% endif %}
+            </div>
+          
+          </div>
+          
+          <div class="container-login100-form-btn">
+            {{ form.submit(class="login100-form-btn") }}
+          </div>
+
+          <div class="text-center p-t-12">
+            <span class="txt1">Forgot password? </span>
+            <a class="txt5" href="#">
+              reset
+            </a>
+          </div>
+
+          <div class="text-center p-t-65">
+            <a class="txt6" href="{{ url_for('register') }}">
+              Create your Account
+              <i class="fa fa-long-arrow-right m-l-5"></i>
+            </a>
+          </div>
+        </form>
+    </div>
+  </div>
+<script type="text/javascript">
+  
+  $('#register').click(function() {
+    window.location.href = '{{ url_for('register') }}'
+  })
+
+</script>
+
+{% endblock content %}
