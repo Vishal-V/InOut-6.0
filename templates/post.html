@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+  <nav class="navbar navbar-toggleable-sm fixed-top navbar-inverse bg-primary app-navbar">
+      <a class="navbar-brand" href="'">
+        <img src="" alt="">
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="/post/new">Create</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+
+          <li class="nav-item hidden-md-up">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item hidden-md-up">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+
+        </ul>
+
+        <form class="form-inline float-right hidden-sm-down">
+          <input class="form-control" type="text" data-action="grow" placeholder="Search">
+        </form>
+
+        <ul id="#js-popoverContent" class="nav navbar-nav float-right mr-0 hidden-sm-down">
+
+          <li class="nav-item">
+            <a class="app-notifications nav-link" href="">
+              <span class="icon icon-bell"></span>
+            </a>
+          </li>
+
+          <li class="nav-item ml-2 avatar-list-item">
+            <a class="" data-toggle="popover">
+              <img class="rounded-circle" src="{{ current_user.profile_pic }}">
+            </a>
+          </li>
+           
+            </button>
+          </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav hidden-xs-up" id="js-popoverContent">
+          <li class="nav-item"><a class="nav-link" href="#" data-action="growl">Notifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </div>
+  </nav>
+
+  <div class="container-fluid container-fill-height">
+    <div class="container-content-middle">
+  
+    <div class="col-md-4"></div>
+    <div class="container col-md-4">
+      <div class="content-section">
+        <br>
+        <form method="POST" action="" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+              Create a new Post
+            </legend>
+
+            <div class="form-group">
+              {{ form.title.label(class="form-control-label") }}
+              {% if form.title.errors %}
+                  {{ form.title(class="form-control is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                      <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+              {% else %}
+                {{ form.title(class="form-control form-control-lg") }}
+              {% endif %}
+            </div>
+
+            <style type="text/css">
+              form textarea#content {
+                height: 250px;
+              }
+
+            </style>
+
+            <div class="form-group">
+              {{ form.content.label(class="form-control-label") }}
+              {% if form.content.errors %}
+                {{ form.content(class="form-control is-invalid", cols='1000') }}
+                <div class="invalid-feedback">
+                  {% for error in form.content.errors %}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.content(class="form-control form-control-lg", cols='1000') }}
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              {{ form.picture.label() }}
+              {{ form.picture(class="form-control-file") }}
+              {% if form.picture.errors %}
+                  {% for error in form.picture.errors %}
+                      <span class="text-danger">{{ error }}</span></br>
+                  {% endfor %}
+              {% endif %}
+            </div>
+            
+          </fieldset>
+
+          <div class="form-group mb-5">
+            {{ form.submit(class="btn btn-primary") }}
+          </div>
+
+      </form>
+    </div>
+  </div>
+<script type="text/javascript">
+  
+  $('#register').click(function() {
+    window.location.href = "{{ url_for('register') }}"
+  })
+</script>
+
+{% endblock content %}
