@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+{% block content %}
+	<style type="text/css">
+      .overlay-desc {
+        background: rgba(0,0,0,0);
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        
+      }
+
+      .video-container {
+        position: relative;
+      }
+
+      .quote {
+        word-wrap: break-word; 
+        color: white;
+        font-size: 2.15em;
+        text-align: center;
+        content: wrap;
+      }
+
+    </style>
+  {% if current_user.is_authenticated %}
+    <div class="section3">
+      <div class="video-wrapper video-container">
+        <video class="bg-video other" src="{{ url_for('static', filename='res/Video_2.mp4') }}" autoplay loop muted></video>
+        <div class="content overlay-desc">
+          <div class="quote">We’re in this together!<br>
+            All of our computers and phones join in a network to make the strongest<br> supercomputer the world has ever seen!</div>
+        </div>
+      </div>
+      <div class="inner">
+        
+      </div>
+    </div>
+  
+    <nav class="navbar navbar-toggleable-sm fixed-top navbar-inverse bg-primary app-navbar">
+      <a class="navbar-brand" href="'">
+        <img src="" alt="">
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Make a Query</a>
+          </li>
+          
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/post/new">Create</a>
+          </li>
+ -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+
+          <!-- <li class="nav-item hidden-md-up">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li> -->
+          <li class="nav-item hidden-md-up">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+
+        </ul>
+
+        <ul id="#js-popoverContent" class="nav navbar-nav float-right mr-0 hidden-sm-down">
+
+          <li class="nav-item ml-2 avatar-list-item">
+            <a class="" data-toggle="popover">
+              <img class="rounded-circle" src="{{ current_user.profile_pic }}">
+            </a>
+          </li>
+           
+            </button>
+          </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav hidden-xs-up" id="js-popoverContent">
+          <!-- <li class="nav-item"><a class="nav-link" href="#" data-action="growl">Notifications</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  {% else %}
+    <div class="section3">
+      <div class="video-wrapper video-container">
+        <video class="bg-video other" src="{{ url_for('static', filename='res/Video_1.mp4') }}" autoplay loop muted></video>
+        <div class="content overlay-desc">
+          <div class="quote">What's  in this together!<br>
+            All of our computers and phones join in a network to make the strongest<br> supercomputer the world has ever seen!</div>
+        </div>
+      </div>
+      <div class="inner">
+        
+      </div>
+    </div>
+  {% endif %}
+    <div class="block block-secondary app-block-marketing-grid">
+    <div class="container text-xs-center">
+
+      <div class="row mb-5">
+        <div class="col-xs-10 offset-xs-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+          <h6 class="text-secondary text-uppercase mb-2">Inside the network</h6>
+          <h3  class="mb-4">It’s not hard to see how Decentra is a truly revolutionary concept</h3>
+        </div>
+      </div>
+
+      <div class="row app-marketing-grid">
+        <div class="col-md-4 px-4 mb-5">
+          <img class="mb-1" src="{{ url_for('static', filename='res/identity.png') }}">
+          <p><strong class="text-dark larger">Decentralization</strong><p class="text-dark">Instead of everyone’s data being held on huge central servers owned by a large organization, <strong>Decentra</strong> exists on independently run servers (“pods”) all over the world. You choose which pod to register with, and you can then connect seamlessly with the community worldwide.</p></p>
+        </div>
+        <div class="col-md-4 px-4 mb-5">
+          <img class="mb-1" src="{{ url_for('static', filename='res/privacy.png') }}">
+          <p><strong class="text-dark larger">Freedom</strong><p class="text-dark"> You can be whoever you want to be in <strong>Decentra</strong>. Unlike some networks, you don’t have to use your real identity. You can interact with people in whatever way you choose. The only limit is your imagination.</p></p>
+        </div>
+        <div class="col-md-4 px-4 mb-5">
+          <img class="mb-1" src="{{ url_for('static', filename='res/data.png') }}">
+          <p><strong class="text-dark larger">Privacy</strong><p class="text-dark"> In <strong>Decentra</strong> you own your data. You don’t sign over rights to a corporation or other companies who could use it. In addition, you choose who sees what you share, using Aspects. With this, your friends, your habits, and your content is your business ... not ours!</p></p>
+        </div>
+      </div>
+
+    </div>
+</div>
+<div class="container">
+  <div>
+    <h1 class="text-center">How to get Started?</h1><br><br>
+  </div>
+  <br>
+  <div class="row app-marketing-grid">
+        <div class="col-md-4 px-4 mb-5 text-center">
+          <img class="mb-1" src="{{ url_for('static', filename='res/identity.png') }}">
+          <p><strong class="text-dark larger">Sign up and choose your pod</strong><p class="text-dark">Instead of everyone’s data being held on huge central servers owned by a large organization, <strong>Decentra</strong> exists on independently run servers (“pods”) all over the world. You choose which pod to register with, and you can then connect seamlessly with the community worldwide.</p></p>
+        </div>
+        <div class="col-md-4 px-4 mb-5 text-center">
+          <img class="mb-1" src="{{ url_for('static', filename='res/privacy.png') }}">
+          <p><strong class="text-dark larger">Link your BTC or ETH wallet</strong><p class="text-dark"> You can be whoever you want to be in <strong>Decentra</strong>. Unlike some networks, you don’t have to use your real identity. You can interact with people in whatever way you choose. The only limit is your imagination.</p></p>
+        </div>
+        <div class="col-md-4 px-4 mb-5 text-center">
+          <img class="mb-1" src="{{ url_for('static', filename='res/data.png') }}">
+          <p><strong class="text-dark larger">Build a pseudonym and be yourself</strong><p class="text-dark"> In <strong>Decentra</strong> you own your data. You don’t sign over rights to a corporation or other companies who could use it. In addition, you choose who sees what you share, using Aspects. With this, your friends, your habits, and your content is your business ... not ours!</p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}
