@@ -1,0 +1,16 @@
+requests==2.19.1
+Flask_Bcrypt==0.7.1
+numpy==1.16.4
+psycopg2_binary==2.7.6.1
+WTForms==2.2.1
+Flask==1.0.2
+Flask_Login==0.4.1
+docproduct==0.2.0
+setuptools==41.0.1
+Flask_WTF==0.14.2
+tf_nightly_2.0_preview==2.0.0.dev20190604
+psycopg2==2.8.4
+tensorflow==2.0.0
+faiss-cpu==1.2.1
+pyarrow
+gpt2-estimator
