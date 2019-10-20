@@ -10,3 +10,18 @@ Modern advancements in AI in the fields of Natural Language Processing, Natural 
 
 We use the BERT architecture, which has proven exceptionally good at aforementioned tasks. Additionally, it can be used with multiple languages, if medical datasets are available in those languages.
 
+
+### Challenges we faced
+
+- The first challenge was preparing data for training. We selected two reputed medical databases for this purpose.
+
+- Next, training requires a lot of compute power, which we cannot carry around in out laptops. We used Google Colab, which provides high-end GPUs for training neural networks.
+
+- We had to reduce the latency of predictions. For this, we had to optimize several parts of our entire pipelie.
+
+- Wrappers had to be created so that the inputs and outputs to and from the model were interpretable by humans.
+
+
+#### Notes
+
+- The entire pipeline is too big to be set up and run quickly on a local system. A one-time environment setup is required. We have provided a IPython notebook where we demonstrate the working of the system.
