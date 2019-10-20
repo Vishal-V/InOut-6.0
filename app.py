@@ -57,6 +57,9 @@ def register():
 		return redirect(url_for('login'))
 	return render_template('register.html', title='Registration', form=form)
 
+@app.route("/about", methods=['GET', 'POST'])
+def about():
+    return render_template('about.html', title='About')
 
 @app.route("/profile", methods=['GET', 'POST'])
 # @login_required
