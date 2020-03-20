@@ -10,7 +10,7 @@ setuptools==41.0.1
 Flask_WTF==0.14.2
 tf_nightly_2.0_preview==2.0.0.dev20190604
 psycopg2==2.8.4
-tensorflow==2.0.0
+tensorflow==2.0.1
 faiss-cpu==1.2.1
 pyarrow
 gpt2-estimator
