@@ -1,6 +1,6 @@
 requests==2.20.0
 Flask_Bcrypt==0.7.1
-numpy==1.16.4
+numpy==1.22.0
 psycopg2_binary==2.7.6.1
 WTForms==2.2.1
 Flask==1.0.2
